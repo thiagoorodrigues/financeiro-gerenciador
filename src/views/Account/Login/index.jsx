@@ -2,9 +2,11 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Input, InputPassword } from "../../../components/Inputs";
 import { Card, Form } from "react-bootstrap";
+import { ContainerLogin, LinkForgot } from "./styles";
 
 import * as yup from "yup";
 import Button from "../../../components/Buttons/inde";
+
 // import CryptoJs from "crypto-js";
 
 const schema = yup.object({
@@ -25,31 +27,35 @@ const Login = () => {
     };
 
     return (
-        <Card className="shadow">
-            <Card.Body>
-                <Form onSubmit={handleSubmit(onSubmit)}>
-                    <Input
-                        name="email"
-                        label="E-mail"
-                        placeholder="E-mail"
-                        required
-                        control={control}
-                        error={errors.email}
-                    />
+        <ContainerLogin>
+            <Card className="shadow">
+                <Card.Body>
+                    <Form onSubmit={handleSubmit(onSubmit)}>
+                        <Input
+                            name="email"
+                            label="E-mail"
+                            placeholder="E-mail"
+                            required
+                            control={control}
+                            error={errors.email}
+                        />
 
-                    <InputPassword
-                        name="password"
-                        label="Senha"
-                        placeholder="Senha"
-                        required
-                        control={control}
-                        error={errors.password}
-                    />
+                        <InputPassword
+                            name="password"
+                            label="Senha"
+                            placeholder="Senha"
+                            required
+                            control={control}
+                            error={errors.password}
+                        />
 
-                    <Button type="submit" fullsize title="Login" />
-                </Form>
-            </Card.Body>
-        </Card>
+                        <LinkForgot to="">Esqueseu a senha?</LinkForgot>
+
+                        <Button type="submit" fullsize title="Login" />
+                    </Form>
+                </Card.Body>
+            </Card>
+        </ContainerLogin>
     )
 }
 

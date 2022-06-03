@@ -7,7 +7,7 @@ import Home from "../views/home";
 import Login from "../views/Account/Login";
 
 const Routes = () => {
-    const { isLogged } = false;
+    const isLogged = true;
 
     return useRoutes([
         {
