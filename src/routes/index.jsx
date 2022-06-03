@@ -1,5 +1,4 @@
 import { useRoutes, Navigate } from "react-router-dom";
-import { useSelector } from 'react-redux';
 
 import TemplateAccount from "../layouts/TemplateAccount";
 import TemplateAdmin from "../layouts/TemplateAdmin";
@@ -7,8 +6,8 @@ import TemplateAdmin from "../layouts/TemplateAdmin";
 import Home from "../views/home";
 import Login from "../views/Account/Login";
 
-const Routers = () => {
-    const { isLogged } = useSelector(state => state.global);
+const Routes = () => {
+    const { isLogged } = false;
 
     return useRoutes([
         {
@@ -29,4 +28,4 @@ const Routers = () => {
     ]);
 }
 
-export default Routers;
+export default Routes;
