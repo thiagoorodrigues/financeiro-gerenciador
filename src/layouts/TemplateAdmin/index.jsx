@@ -1,31 +1,29 @@
 import { Outlet } from "react-router-dom";
-import { Container } from "react-bootstrap";
-import { Nav, NavLink } from './styles';
+import { Container, Header, Nav, NavLink } from './styles';
+
+import Logomarca from '../../images/logomarca.svg';
 
 const TemplateAdmin = () => {
     return (
         <>
-            <header>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12 col-sm-6">
-
-                        </div>
-                        <div className="col-12 col-sm-6">
-
-                        </div>
+            <Header>
+                <Container>
+                    <div className="logomarca">
+                        <img src={Logomarca} width={100} alt='Gestão Financeira' />
                     </div>
-                </div>
-            </header>
 
-            <Container>
-                <Nav>
-                    <NavLink to="/">Resumo</NavLink>
-                    <NavLink to="/categorias">Categorias</NavLink>
-                    <NavLink to="/lanamento-contas">Lançamentos</NavLink>
-                    <NavLink to="/contas-bancarias">Contas Bancárias</NavLink>
-                </Nav>
-            </Container>
+                    <Nav>
+                        <NavLink to="contas-bancarias">Contas Bancárias</NavLink>
+                        <NavLink to="categorias">Categorias</NavLink>
+                        <NavLink to="lancamentos">Lançamentos</NavLink>
+                    </Nav>
+
+                    <Nav>
+                        <NavLink to="categorias">Olá, Thiago Rodrigues</NavLink>
+                        <NavLink to="lancamentos">Sair</NavLink>
+                    </Nav>
+                </Container>
+            </Header>
 
             <div className="content">
                 <Outlet />
