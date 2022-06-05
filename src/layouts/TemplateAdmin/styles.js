@@ -1,26 +1,23 @@
 import styled from "styled-components";
+
+import { Link } from 'react-router-dom';
 import { COLORS } from "../../themes/Colors";
 
-export const ContainerAdmin = styled.div`
+
+export const Nav = styled.div`
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
+`
 
-    padding: 20px;
+export const NavLink = styled(Link)`
+    text-align: center;
+    text-decoration: none;
 
-    background: ${COLORS.PRIMARY};
-    background: -webkit-linear-gradient(to right, ${COLORS.SECONDARY}, ${COLORS.PRIMARY});
-    background: linear-gradient(to right, ${COLORS.SECONDARY}, ${COLORS.PRIMARY}); 
+    width: 100%;
 
-    width: 100vw;
-    height: 100vh;
-`;
+    padding: 10px 0px;
 
-export const Sidebar = styled.div`
-    height: 100vh;
-`;
-
-export const Content = styled.div`
-    background-color: ${COLORS.WHITE};
-    height: 100vh;
-`;
+    font-size: 1rem;
+`
