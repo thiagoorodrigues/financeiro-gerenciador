@@ -1,33 +1,31 @@
-import { Outlet } from "react-router-dom";
-import { Container, Header, Nav, NavLink } from './styles';
-
-import Logomarca from '../../images/logomarca.svg';
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { Link, Outlet } from "react-router-dom";
 
 const TemplateAdmin = () => {
     return (
         <>
-            <Header>
+            <Navbar bg="light" expand="lg">
                 <Container>
-                    <div className="logomarca">
-                        <img src={Logomarca} width={100} alt='Gestão Financeira' />
-                    </div>
+                    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse>
+                        <Nav className="m-auto">
+                            <Link className="nav-link" to="contas-bancarias">Contas Bancárias</Link>
+                            <Link className="nav-link" to="categorias">Categorias</Link>
+                            <Link className="nav-link" to="lancamentos">Lançamentos</Link>                                                        
+                        </Nav>
 
-                    <Nav>
-                        <NavLink to="contas-bancarias">Contas Bancárias</NavLink>
-                        <NavLink to="categorias">Categorias</NavLink>
-                        <NavLink to="lancamentos">Lançamentos</NavLink>
-                    </Nav>
-
-                    <Nav>
-                        <NavLink to="categorias">Olá, Thiago Rodrigues</NavLink>
-                        <NavLink to="lancamentos">Sair</NavLink>
-                    </Nav>
+                        <Nav>
+                            <Nav.Link href="#">Olá, Thiago Rodrigues</Nav.Link>
+                            <Nav.Link href="#">Sair</Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
                 </Container>
-            </Header>
+            </Navbar>
 
-            <div className="content">
+            <Container>
                 <Outlet />
-            </div>
+            </Container>
         </>
     )
 }

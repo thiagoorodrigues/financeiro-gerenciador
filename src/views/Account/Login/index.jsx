@@ -4,26 +4,38 @@ import { Input, InputPassword } from "../../../components/Inputs";
 import { Card, Form } from "react-bootstrap";
 import { ContainerLogin, LinkForgot } from "./styles";
 
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 import * as yup from "yup";
 import Button from "../../../components/Buttons/inde";
-
-// import CryptoJs from "crypto-js";
+import { api } from "../../../utils/api";
+import { setGlobal } from "../../../redux/reducers/global";
+import { toast } from "react-toastify";
 
 const schema = yup.object({
     email: yup.string().email("E-mail inválido").required("Informe o e-mail"),
     password: yup.string().required("Informe a senha"),
 });
 
-
 const Login = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const { handleSubmit, control, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
 
     const onSubmit = async (data) => {
-        // const key = CryptoJs.SHA512(data.email + ';' + data.password).toString();
+        let res = await api('auth/login', 'POST', data);
 
+        if (res.code !== 200) {
+            toast.error('Os dados de e-mail e ou senha estão inválidos.')
+            return false;   
+        }
+
+        dispatch(setGlobal({ token: res.body.token, isLogged: true }));
+        navigate('/', { replace: true });
     };
 
     return (
