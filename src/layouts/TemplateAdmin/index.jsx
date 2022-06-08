@@ -1,5 +1,5 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom';
 
 const TemplateAdmin = () => {
     return (
@@ -9,13 +9,7 @@ const TemplateAdmin = () => {
                     <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse>
-                        <Nav className="m-auto">
-                            <Link className="nav-link" to="contas-bancarias">Contas Bancárias</Link>
-                            <Link className="nav-link" to="categorias">Categorias</Link>
-                            <Link className="nav-link" to="lancamentos">Lançamentos</Link>                                                        
-                        </Nav>
-
-                        <Nav>
+                        <Nav className="ms-auto">
                             <Nav.Link href="#">Olá, Thiago Rodrigues</Nav.Link>
                             <Nav.Link href="#">Sair</Nav.Link>
                         </Nav>
@@ -23,7 +17,7 @@ const TemplateAdmin = () => {
                 </Container>
             </Navbar>
 
-            <Container>
+            <Container className="pt-3">
                 <Outlet />
             </Container>
         </>

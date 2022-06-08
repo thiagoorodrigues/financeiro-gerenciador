@@ -1,13 +1,13 @@
 import { ButtonContainer } from './styles';
 
-const Button = ({ title, fullsize, props }) => {
+const Buttons = ({ title, fullsize, props, style }) => {
     return (
         <div className={fullsize ? 'd-grid' : ''}>
-            <ButtonContainer className="btn btn-primary" {...props}>
+            <ButtonContainer className={`btn btn-primary ${style ?? ''}`} {...props}>
                 {title}
             </ButtonContainer>
         </div>
     )
 }
 
-export default Button;
+export default Buttons;

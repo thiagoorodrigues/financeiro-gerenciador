@@ -5,5 +5,5 @@ export const TOKEN = "";
 
 export const HEADER = {
     'Content-Type': "application/json",
-    Authorization: TOKEN
+    'x-access-token': TOKEN
 }

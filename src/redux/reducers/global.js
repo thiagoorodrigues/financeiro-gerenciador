@@ -18,5 +18,5 @@ const slice = createSlice({
   },
 });
 
-export const { setGlobal, resetGlobal } = slice.actions;
+export const { setGlobal, resetGlobal, getGlobal } = slice.actions;
 export default slice.reducer;

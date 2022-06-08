@@ -6,12 +6,12 @@ import { ContainerLogin, LinkForgot } from "./styles";
 
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
-import * as yup from "yup";
-import Button from "../../../components/Buttons/inde";
 import { api } from "../../../utils/api";
 import { setGlobal } from "../../../redux/reducers/global";
 import { toast } from "react-toastify";
+
+import * as yup from "yup";
+import Button from "../../../components/Buttons";
 
 const schema = yup.object({
     email: yup.string().email("E-mail inválido").required("Informe o e-mail"),
@@ -33,6 +33,8 @@ const Login = () => {
             toast.error('Os dados de e-mail e ou senha estão inválidos.')
             return false;   
         }
+
+        window.localStorage.setItem('token', res.body.token);        
 
         dispatch(setGlobal({ token: res.body.token, isLogged: true }));
         navigate('/', { replace: true });

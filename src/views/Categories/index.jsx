@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Badge, Card, Row, Col, Button } from "react-bootstrap";
-import { FaEdit, FaTrash } from "react-icons/fa";
+import { MdEdit, MdDelete } from "react-icons/md";
 import { api } from '../../utils/api';
 
 import HeaderPage from '../../components/HeaderPage';
@@ -8,22 +8,34 @@ import HeaderPage from '../../components/HeaderPage';
 const Categories = () => {
 
     const [categories, setCategories] = useState([]);
+    const [categoriesSearch, setCategoriesSearch] = useState([]);
+
+    const [serach, setSearch] = useState('');
 
     useEffect(() => {
         (async () => {
             const res = await api('categories');
             if (res.code === 200) {
                 setCategories(res.body);
+                setCategoriesSearch(res.body);
             }
         })();
     }, []);
+
+    useEffect(() => {
+        const listaForFIlter = categories;
+        const listaFiltrada = listaForFIlter.filter(item => {
+            return item.name.toLowerCase().includes(serach.toLowerCase());
+        });
+        setCategoriesSearch(listaFiltrada);
+    }, [serach])
 
     return (
         <>
             <HeaderPage title="Categorias" />
 
-            {categories.map((item, index) => (
-                <Card key={index} className="mb-3 shadow-sm">
+            {categoriesSearch.map((item, index) => (
+                <Card key={index} className="mb-2 shadow-sm">
                     <Card.Body className='p-2'>
                         <Row className="align-items-center justify-content-between">
                             <Col>
@@ -38,18 +50,17 @@ const Categories = () => {
 
                             <Col className="d-flex justify-content-end">
                                 <Button type="button" size="sm">
-                                    <FaEdit />
+                                    <MdEdit />
                                 </Button>
 
                                 <Button type="button" variant="danger" size="sm">
-                                    <FaTrash />
+                                    <MdDelete />
                                 </Button>
                             </Col>
                         </Row>
                     </Card.Body>
                 </Card>
             ))}
-
         </>
     )
 }
