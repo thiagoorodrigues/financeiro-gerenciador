@@ -86,7 +86,7 @@ export const Lista = styled.ul`
     list-style: none;
     padding: 0;
 
-    height: 300px;
+    height: ${props => props.height ? `${props.height}px` : '300px'};
     overflow-y: scroll;
 
     ::-webkit-scrollbar {
@@ -108,6 +108,7 @@ export const ListaItem = styled.li`
 
     padding-top: .1rem;
     padding-bottom: .1rem;
+    padding-right: .4rem;
 
     &:hover{
         background-color: ${COLORS.LIGHTGRAY};
