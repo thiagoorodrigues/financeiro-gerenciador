@@ -18,7 +18,7 @@ const schema = yup.object({
     password: yup.string().required("Informe a senha"),
 });
 
-const Login = () => {
+const Forgot = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -61,14 +61,14 @@ const Login = () => {
                     error={errors.password}
                 />
 
-                <LinkForgot to="recuperar-senha">Esqueseu a senha?</LinkForgot>
+                <LinkForgot to="/">Esqueseu a senha?</LinkForgot>
 
                 <ButtonGradient type="submit" fullsize>
-                    Entrar
+                    Recuperar Senha
                 </ButtonGradient>
             </Form>
         </ContainerLogin>
     )
 }
 
-export default Login;
+export default Forgot;

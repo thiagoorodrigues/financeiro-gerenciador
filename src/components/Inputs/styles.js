@@ -27,7 +27,7 @@ export const InvalidFeedback = styled.div`
 export const Button = styled.div`
     position: absolute;
     right: 10px;
-    bottom:${props => props.error ? '10px' : '28px'};
+    bottom:${props => props.error ? '5px' : '25px'};
 
     width: 2rem;
 

@@ -7,6 +7,7 @@ import TemplateAdmin from "../layouts/TemplateAdmin";
 
 import Home from "../views/home";
 import Login from "../views/Account/Login";
+import Forgot from "../views/Account/Forgot";
 import Categories from "../views/Categories";
 import BankAccount from "../views/BankAccount";
 
@@ -28,7 +29,8 @@ const Routes = () => {
             path: 'conta',
             element: <TemplateAccount />,
             children: [
-                { index: true, element: <Login /> }
+                { index: true, element: <Login /> },                
+                { path: 'recuperar-senha', element: <Forgot/> },
             ]
         }
     ]);

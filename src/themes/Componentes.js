@@ -70,6 +70,34 @@ export const Button = styled.button`
     }
 `
 
+export const ButtonGradient = styled.button`
+    border: 0;
+
+    font-size: 1rem;
+    font-weight: 200;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap: .3rem;
+
+    background: ${COLORS.PRIMARY};
+    background: linear-gradient(279deg, ${COLORS.PRIMARY} 0%, ${COLORS.SECONDARY} 100%);
+
+    color: ${COLORS.WHITE};
+
+    padding: .5rem 1rem;
+
+    width: ${props => props.fullsize ? '100%' : 'auto'};
+
+    &:hover{
+        background: ${COLORS.PRIMARY};
+        background: linear-gradient(279deg, ${COLORS.PRIMARY} 0%, ${COLORS.SECONDARY} 100%);
+
+        color: ${COLORS.WHITE};        
+    }
+`
+
 export const SlimButton = styled.button`
     border: 0;
     background-color: ${COLORS.LIGHTGRAY};

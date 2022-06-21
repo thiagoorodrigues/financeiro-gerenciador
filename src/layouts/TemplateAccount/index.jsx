@@ -1,10 +1,15 @@
 import { Outlet } from "react-router-dom";
-import { ContainerLogin } from "./styles";
+import { ContainerContent, ContainerEmpty, ContainerLogin } from "./styles";
 
 const TemplateAccount = () => {
     return (
         <ContainerLogin>
-            <Outlet />
+            <ContainerContent>
+                <Outlet />
+            </ContainerContent>
+            <ContainerEmpty>
+
+            </ContainerEmpty>
         </ContainerLogin>
     )
 }
